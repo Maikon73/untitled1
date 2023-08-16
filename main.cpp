@@ -25,5 +25,9 @@ using namespace std;
  */
 int main()
 {
-
+    cpr::Response r = cpr::Get (cpr::Url ("http://httpbin.org/html"), cpr::Header({{"accept", "text/html"}}));
+    int x = r.text.find ("<h1>") + 4;
+    int y = r.text.find ("</h1>");
+    std::cout << r.text << std::endl << std::endl << std::endl;
+    std::cout << r.text.substr (x, y - x) << std::endl << std::endl << std::endl << std::endl;;
 }
